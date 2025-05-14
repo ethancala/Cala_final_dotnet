@@ -1,0 +1,38 @@
+﻿@{
+ViewData["Title"] = "Review Questions";
+}
+
+<div class="container mt-5">
+    <h2 class="mb-4" style="font-weight: 400;">Review Questions</h2>
+
+    <div class="mb-4">
+        <p>
+            <strong>Question:</strong> Explain the purpose of <code>_Layout.cshtml</code> and <code>_ViewStart.cshtml</code>.
+        </p>
+        <p>
+            <strong>Answer:</strong> _Layout is used for defining the common structure for the web app. Such as things like the header, navbar, and footer. _ViewStart.cshtml is a Razor file that runs before each view is rendered
+        </p>
+    </div>
+
+    <div class="mb-4">
+        <p>
+            <strong>Question:</strong> Give two examples of asp tag helpers, and clearly explain the purpose of each.
+        </p>
+        <p>
+            <strong>Answer:</strong> asp-controller="Home" asp-action="Index">Home, which generates a link to index using controller called home. input asp-for="UserName" class="form-control". This just binds form elements to model properties
+        </p>
+    </div>
+
+    <div class="mb-4">
+        <p>
+            <strong>Question:</strong> When using programming by convention, how do I know which view will be loaded by <code>View()</code> when called for a function of a controller? Give a concrete example.
+        </p>
+        <p>
+            <strong>Answer:</strong> ASP.NET Core MVC uses view discovery to find the view file. For example: public IActionResult About()
+            {
+            return View();
+            }
+
+        </p>
+    </div>
+</div>

@@ -1,0 +1,46 @@
+﻿@model Cala_final_dotnet.Models.TemperatureConverterModel
+
+
+@{
+    ViewData["Title"] = "Temperature Converter";
+}
+
+<div class="container mt-5">
+    <div class="text-center">
+        <h1 class="display-4">Welcome to the Temperature Converter App</h1>
+        <p class="lead">
+            Use the controls below to convert a temperature from one scale to another.
+        </p>
+    </div>
+    <form asp-action="Index" method="post" class="mx-auto" style="max-width: 500px;">
+        <div class="mb-3">
+            <label asp-for="OriginalTemperature" class="form-label">Original temperature</label>
+            <input asp-for="OriginalTemperature" class="form-control" autocomplete="off" />
+        </div>
+        <div class="mb-3">
+            <label class="form-label">Select conversion:</label>
+            <div>
+                <input type="radio" asp-for="ConvertToScale" value="Celsius" id="toCelsius"
+                       checked="@(Model.ConvertToScale == "Celsius")" />
+                <label for="toCelsius" class="me-3">To Celsius</label>
+                <input type="radio" asp-for="ConvertToScale" value="Fahrenheit" id="toFahrenheit"
+                       checked="@(Model.ConvertToScale == "Fahrenheit")" />
+                <label for="toFahrenheit">To Fahrenheit</label>
+            </div>
+        </div>
+        <div class="mb-3">
+            <button type="submit" class="btn btn-primary me-2">Convert</button>
+            <a asp-action="Index" class="btn btn-secondary">Clear</a>
+        </div>
+        <div class="mb-3">
+            <label class="form-label">Converted temperature</label>
+            <input class="form-control" value="@(Model.ConvertedTemperature.HasValue ? Model.ConvertedTemperature.Value.ToString("F3") : "")" readonly />
+        </div>
+        @if (!string.IsNullOrEmpty(Model.ErrorMessage))
+        {
+        <div class="alert alert-danger text-center">
+            @Model.ErrorMessage
+        </div>
+        }
+    </form>
+</div>
