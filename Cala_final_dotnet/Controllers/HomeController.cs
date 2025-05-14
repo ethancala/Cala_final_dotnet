@@ -8,7 +8,7 @@ public class HomeController : Controller
 {
     public IActionResult Index()
     {
-        // Initialize with default "To Celsius" selection
+        // returns my new model as index route
         var model = new TemperatureConverterModel 
         { 
             ConvertToScale = "Celsius" 
@@ -16,16 +16,17 @@ public class HomeController : Controller
         return View(model);
     }
 
+    //post response for temperature conversion
     [HttpPost]
     public IActionResult Index(TemperatureConverterModel model)
     {
        
-        model.Convert(); // Handle temperature conversion
+        model.Convert(); // handle temperature conversion
         return View(model);
     }
 
     public IActionResult Questions()
     {
-        return View(); // For the Questions page
+        return View(); // for the Questions page
     }
 }
